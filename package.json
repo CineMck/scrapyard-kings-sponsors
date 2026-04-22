@@ -1,0 +1,12 @@
+{
+    "name": "scrapyard-kings-sponsors",
+    "version": "1.0.0",
+    "description": "Scrapyard Kings Season 2 Sponsorship Site",
+    "main": "server.js",
+    "scripts": {
+          "start": "node server.js"
+    },
+    "dependencies": {
+          "express": "^4.18.2"
+    }
+}
