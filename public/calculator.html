@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,7 +71,7 @@
 
   /* ── Tier selector cards ── */
   .tier-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 32px 0 12px;
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin: 32px 0 12px;
   }
   .tier-card {
     background: var(--card); border: 2px solid var(--border); border-radius: var(--radius);
@@ -92,7 +91,8 @@
   .tier-badge.premiere { background: rgba(249,115,22,0.2); color: var(--accent); }
   .tier-badge.gold { background: rgba(250,204,21,0.2); color: var(--gold); }
   .tier-badge.team { background: rgba(59,130,246,0.2); color: var(--blue); }
-  .tier-badge.event { background: rgba(168,85,247,0.2); color: var(--purple); }
+  .tier-badge.challenge { background: rgba(168,85,247,0.2); color: var(--purple); }
+  .tier-badge.silver { background: rgba(148,163,184,0.2); color: #94a3b8; }
   .tier-name { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
   .tier-price { font-size: 1.5rem; font-weight: 900; color: #fff; margin: 6px 0; }
   .tier-price span { font-size: 0.75rem; font-weight: 500; color: var(--muted); }
@@ -223,28 +223,34 @@
 
   <div class="tier-grid">
     <div class="tier-card selected" onclick="selectTier('premiere')" id="card-premiere">
-      <div class="tier-badge premiere">Exclusive</div>
+      <div class="tier-badge premiere">1 Per Series</div>
       <div class="tier-name">Premiere Sponsor</div>
-      <div class="tier-price">$250K <span>/ episode</span></div>
-      <div class="tier-desc">Title integration, category exclusivity, full content rights, dedicated segments</div>
-    </div>
-    <div class="tier-card" onclick="selectTier('gold')" id="card-gold">
-      <div class="tier-badge gold">Exclusive</div>
-      <div class="tier-name">Gold Sponsor</div>
-      <div class="tier-price">$125K <span>/ episode</span></div>
-      <div class="tier-desc">Opening/closing mentions, product placement, social content, co-branded activation</div>
+      <div class="tier-price">$300K <span>/ episode</span></div>
+      <div class="tier-desc">Title integration, custom integrations, Heavy D collab, Tool Armory branding, Grand Prize naming</div>
     </div>
     <div class="tier-card" onclick="selectTier('team')" id="card-team">
       <div class="tier-badge team">3 Available</div>
       <div class="tier-name">Team Sponsor</div>
-      <div class="tier-price">$100K <span>/ episode</span></div>
-      <div class="tier-desc">Logo on jerseys & gear, team association, on-screen presence every scene</div>
+      <div class="tier-price">$200K <span>/ episode</span></div>
+      <div class="tier-desc">Logo on jerseys & gear, team naming rights, on-screen presence every scene</div>
     </div>
-    <div class="tier-card" onclick="selectTier('event')" id="card-event">
-      <div class="tier-badge event">6 Available</div>
-      <div class="tier-name">Event Partner</div>
-      <div class="tier-price">$100K <span>/ event</span></div>
+    <div class="tier-card" onclick="selectTier('challenge')" id="card-challenge">
+      <div class="tier-badge challenge">5 Available</div>
+      <div class="tier-name">Challenge Sponsor</div>
+      <div class="tier-price">$150K <span>/ event</span></div>
       <div class="tier-desc">On-site activation, product demos, event footage visibility, branded recap clips</div>
+    </div>
+    <div class="tier-card" onclick="selectTier('gold')" id="card-gold">
+      <div class="tier-badge gold">3 Per Series</div>
+      <div class="tier-name">Gold Sponsor</div>
+      <div class="tier-price">$100K <span>/ episode</span></div>
+      <div class="tier-desc">Custom integrations, Diesel Dave collab, co-branded event, social content</div>
+    </div>
+    <div class="tier-card" onclick="selectTier('silver')" id="card-silver">
+      <div class="tier-badge silver">2 Per Series</div>
+      <div class="tier-name">Silver Sponsor</div>
+      <div class="tier-price">$50K <span>/ episode</span></div>
+      <div class="tier-desc">Two custom 30-second integrations per episode</div>
     </div>
   </div>
 
@@ -457,9 +463,9 @@ window.addEventListener('scroll', () => {
 const TIERS = {
   premiere: {
     name: 'Premiere Sponsor',
-    baseRate: 250000,
-    rateComp: 250000,
-    rateSearch: 200000,
+    baseRate: 300000,
+    rateComp: 300000,
+    rateSearch: 300000,
     bundleDiscount: 0.10,
     socialMultiplier: 5,
     ctr: 0.015,
@@ -472,49 +478,21 @@ const TIERS = {
     color: 'var(--accent)',
     benefits: [
       { icon: '🏆', text: 'Title Card: "Scrapyard Kings Presented by [Your Brand]"' },
-      { icon: '🎙️', text: '2–3 verbal mentions per episode by Heavy D' },
-      { icon: '🔧', text: 'Your products featured in every build scene' },
-      { icon: '🎬', text: 'Dedicated "Tool of the Build" segment each episode' },
+      { icon: '🎬', text: 'Two custom 60-second integrations into each episode' },
+      { icon: '📺', text: 'Prominent logo bug for the outro sequence previewing the next episode' },
       { icon: '📍', text: 'On-set signage, workbench branding, intro/outro logo' },
-      { icon: '📱', text: '5+ branded social posts & stories per episode' },
-      { icon: '📦', text: 'Full content library rights for your own channels' },
+      { icon: '🎙️', text: 'Heavy D content collab' },
+      { icon: '🔧', text: 'Your branding and name on the Tool Armory for the teams' },
+      { icon: '📦', text: 'Full content co-licensing library rights for your own channels' },
       { icon: '🎥', text: 'Behind-the-scenes content featuring your brand' },
-      { icon: '🏟️', text: 'Co-branding at all competition events' },
-      { icon: '🛒', text: 'Shoppable links in all descriptions & pinned comments' },
-      { icon: '🔒', text: 'Category exclusivity across entire franchise' },
-      { icon: '🔄', text: 'Season 3 right of first refusal' },
-    ]
-  },
-  gold: {
-    name: 'Gold Sponsor',
-    baseRate: 125000,
-    rateComp: 125000,
-    rateSearch: 100000,
-    bundleDiscount: 0.10,
-    socialMultiplier: 4,
-    ctr: 0.012,
-    cvr: 0.03,
-    aov: 95,
-    visits: 4,
-    emvPerImpression: 0.012,
-    seriesOptions: ['competition','search','bundle'],
-    episodeOptions: { competition: [6], search: [4], bundle: [10] },
-    color: 'var(--gold)',
-    benefits: [
-      { icon: '🎙️', text: '"With support from [Your Brand]" in intro & outro' },
-      { icon: '🔧', text: 'Organic product placement in 4+ episodes' },
-      { icon: '📺', text: 'On-screen lower-third graphics & set signage' },
-      { icon: '📱', text: '3 branded social posts & stories per episode' },
-      { icon: '🎬', text: 'License to use 30-second clips on your channels' },
-      { icon: '🛒', text: 'Shoppable links in video descriptions' },
-      { icon: '🎁', text: '1 co-branded activation (giveaway, contest, or event)' },
-      { icon: '🔒', text: 'Category exclusivity — no competitor in Gold or Premiere' },
+      { icon: '🏟️', text: 'The Final Challenge branded with your logo and name' },
+      { icon: '💰', text: 'Cash Grand Prize naming: "[Your Brand] Grand Prize"' },
     ]
   },
   team: {
     name: 'Team Sponsor',
-    baseRate: 100000,
-    rateComp: 100000,
+    baseRate: 200000,
+    rateComp: 200000,
     rateSearch: 0,
     bundleDiscount: 0,
     socialMultiplier: 3,
@@ -528,19 +506,19 @@ const TIERS = {
     color: 'var(--blue)',
     benefits: [
       { icon: '👕', text: 'Your logo on team jerseys, hats & gear — all filming' },
-      { icon: '🎙️', text: '"Team [Name] sponsored by [Your Brand]" verbal callout' },
+      { icon: '🎙️', text: '"Team [Brand Name]" verbal callout' },
       { icon: '📺', text: 'Logo visible in every scene with your team — dozens of minutes' },
       { icon: '📱', text: '2 branded team posts per episode + team member content' },
       { icon: '🚶', text: 'Brand mention in team intro/walkout sequence' },
       { icon: '🏆', text: 'If your team wins — brand featured in victory celebration' },
     ]
   },
-  event: {
-    name: 'Event Partner',
-    baseRate: 100000,
-    rateComp: 100000,
+  challenge: {
+    name: 'Challenge Sponsor',
+    baseRate: 150000,
+    rateComp: 150000,
     rateSearch: 0,
-    bundleDiscount: 0,
+    bundleDiscount: 0.10,
     socialMultiplier: 2,
     ctr: 0.008,
     cvr: 0.02,
@@ -548,15 +526,57 @@ const TIERS = {
     visits: 3,
     emvPerImpression: 0.008,
     seriesOptions: ['competition'],
-    episodeOptions: { competition: [1,3,6] },
+    episodeOptions: { competition: [1,3,5] },
     color: 'var(--purple)',
     benefits: [
       { icon: '📍', text: 'Banners, signage & branded zones at the event' },
       { icon: '🔧', text: 'Product demo booth, sampling, or interactive experience' },
       { icon: '🎬', text: 'Brand visible in event footage (signage in background)' },
-      { icon: '📱', text: '2 event-specific social posts + Stories/Reels coverage' },
-      { icon: '🤝', text: 'Direct engagement with live attendees' },
-      { icon: '🎥', text: '30-second branded recap clip for your own channels' },
+      { icon: '📱', text: '6 event-specific social posts + Stories/Reels coverage' },
+      { icon: '🎥', text: '60-second branded recap clip for your own channels' },
+    ]
+  },
+  gold: {
+    name: 'Gold Sponsor',
+    baseRate: 100000,
+    rateComp: 100000,
+    rateSearch: 100000,
+    bundleDiscount: 0.10,
+    socialMultiplier: 4,
+    ctr: 0.012,
+    cvr: 0.03,
+    aov: 95,
+    visits: 4,
+    emvPerImpression: 0.012,
+    seriesOptions: ['competition','search','bundle'],
+    episodeOptions: { competition: [6], search: [4], bundle: [10] },
+    color: 'var(--gold)',
+    benefits: [
+      { icon: '🎬', text: 'Two custom 30-second integrations into each episode' },
+      { icon: '🎙️', text: 'Diesel Dave content collab' },
+      { icon: '🎁', text: 'Co-branded event' },
+      { icon: '📱', text: '3 branded social posts & stories per episode' },
+      { icon: '📦', text: 'License to use 30-second clips on your channels' },
+      { icon: '🏟️', text: 'Branding for the Final Challenge' },
+    ]
+  },
+  silver: {
+    name: 'Silver Sponsor',
+    baseRate: 50000,
+    rateComp: 50000,
+    rateSearch: 50000,
+    bundleDiscount: 0.10,
+    socialMultiplier: 2,
+    ctr: 0.008,
+    cvr: 0.02,
+    aov: 95,
+    visits: 3,
+    emvPerImpression: 0.006,
+    seriesOptions: ['competition','search','bundle'],
+    episodeOptions: { competition: [6], search: [4], bundle: [10] },
+    color: '#94a3b8',
+    benefits: [
+      { icon: '🎬', text: 'Two custom 30-second integrations per episode' },
     ]
   }
 };
@@ -574,8 +594,8 @@ function selectTier(tier) {
   const seriesSel = document.getElementById('sel-series');
   seriesSel.innerHTML = '';
   if (t.seriesOptions.includes('competition')) {
-    const isEvent = tier === 'event';
-    seriesSel.add(new Option(isEvent ? 'Competition Events' : 'Competition Series (6 episodes)', 'competition'));
+    const isChallenge = tier === 'challenge';
+    seriesSel.add(new Option(isChallenge ? 'Competition Events' : 'Competition Series (6 episodes)', 'competition'));
   }
   if (t.seriesOptions.includes('search')) seriesSel.add(new Option('Talent Search (4 episodes)', 'search'));
   if (t.seriesOptions.includes('bundle')) seriesSel.add(new Option('Both Series — 10% Bundle Discount', 'bundle'));
@@ -591,16 +611,16 @@ function updateEpisodeOptions() {
   const label = document.getElementById('episodes-label');
   epSel.innerHTML = '';
 
-  const isEvent = currentTier === 'event';
-  label.textContent = isEvent ? 'Number of Events' : 'Number of Episodes';
+  const isChallenge = currentTier === 'challenge';
+  label.textContent = isChallenge ? 'Number of Events' : 'Number of Episodes';
 
   if (series === 'bundle') {
     epSel.add(new Option('Full Bundle (10 episodes)', '10'));
   } else {
     const opts = t.episodeOptions[series] || [6];
     opts.forEach(n => {
-      const lbl = isEvent
-        ? (n === 1 ? '1 Event ($100K)' : n === 3 ? '3 Events — 10% off ($90K ea)' : '6 Events — 20% off ($80K ea)')
+      const lbl = isChallenge
+        ? (n === 1 ? '1 Event ($150K)' : n === 3 ? '3 Events ($150K ea)' : '5 Events — 10% off ($135K ea)')
         : (n === 3 ? 'Half Season (3 episodes)' : `Full Season (${n} episodes)`);
       epSel.add(new Option(lbl, n.toString()));
     });
@@ -630,10 +650,9 @@ function recalculate() {
 
   // Calculate per-episode rate
   let perEpRate;
-  if (currentTier === 'event') {
-    if (numEp === 1) perEpRate = 100000;
-    else if (numEp === 3) perEpRate = 90000;
-    else perEpRate = 80000;
+  if (currentTier === 'challenge') {
+    if (numEp === 5) perEpRate = 135000;
+    else perEpRate = 150000;
   } else if (series === 'bundle') {
     const compTotal = t.rateComp * 6;
     const searchTotal = t.rateSearch * 4;
@@ -643,7 +662,7 @@ function recalculate() {
     perEpRate = t.rateSearch;
   } else {
     perEpRate = t.rateComp;
-    if (currentTier === 'team' && numEp === 3) perEpRate = 115000;
+    if (currentTier === 'team' && numEp === 3) perEpRate = 200000;
   }
 
   const totalCost = perEpRate * numEp;
@@ -661,7 +680,7 @@ function recalculate() {
 
   // Update main results
   document.getElementById('r-total').textContent = fmtD(totalCost);
-  const unitLabel = currentTier === 'event' ? 'events' : 'episodes';
+  const unitLabel = currentTier === 'challenge' ? 'events' : 'episodes';
   document.getElementById('r-total-sub').textContent = `${numEp} ${unitLabel} × ${fmtD(perEpRate)}`;
 
   document.getElementById('r-perep').textContent = fmtD(perEpRate);
