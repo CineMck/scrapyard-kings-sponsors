@@ -225,25 +225,25 @@
     <div class="tier-card selected" onclick="selectTier('premiere')" id="card-premiere">
       <div class="tier-badge premiere">1 Per Series</div>
       <div class="tier-name">Premiere Sponsor</div>
-      <div class="tier-price">$300K <span>/ episode</span></div>
+      <div class="tier-price">$200K <span>/ episode</span></div>
       <div class="tier-desc">Title integration, custom integrations, Heavy D collab, Tool Armory branding, Grand Prize naming</div>
     </div>
     <div class="tier-card" onclick="selectTier('team')" id="card-team">
       <div class="tier-badge team">3 Available</div>
       <div class="tier-name">Team Sponsor</div>
-      <div class="tier-price">$200K <span>/ episode</span></div>
+      <div class="tier-price">$100K <span>/ episode</span></div>
       <div class="tier-desc">Logo on jerseys & gear, team naming rights, on-screen presence every scene</div>
     </div>
     <div class="tier-card" onclick="selectTier('challenge')" id="card-challenge">
       <div class="tier-badge challenge">5 Available</div>
       <div class="tier-name">Challenge Sponsor</div>
-      <div class="tier-price">$150K <span>/ event</span></div>
+      <div class="tier-price">$50K <span>/ event</span></div>
       <div class="tier-desc">On-site activation, product demos, event footage visibility, branded recap clips</div>
     </div>
     <div class="tier-card" onclick="selectTier('gold')" id="card-gold">
       <div class="tier-badge gold">3 Per Series</div>
       <div class="tier-name">Gold Sponsor</div>
-      <div class="tier-price">$100K <span>/ episode</span></div>
+      <div class="tier-price">$80K <span>/ episode</span></div>
       <div class="tier-desc">Custom integrations, Diesel Dave collab, co-branded event, social content</div>
     </div>
     <div class="tier-card" onclick="selectTier('silver')" id="card-silver">
@@ -463,9 +463,9 @@ window.addEventListener('scroll', () => {
 const TIERS = {
   premiere: {
     name: 'Premiere Sponsor',
-    baseRate: 300000,
-    rateComp: 300000,
-    rateSearch: 300000,
+    baseRate: 200000,
+    rateComp: 200000,
+    rateSearch: 200000,
     bundleDiscount: 0.10,
     socialMultiplier: 5,
     ctr: 0.015,
@@ -491,8 +491,8 @@ const TIERS = {
   },
   team: {
     name: 'Team Sponsor',
-    baseRate: 200000,
-    rateComp: 200000,
+    baseRate: 100000,
+    rateComp: 100000,
     rateSearch: 0,
     bundleDiscount: 0,
     socialMultiplier: 3,
@@ -515,8 +515,8 @@ const TIERS = {
   },
   challenge: {
     name: 'Challenge Sponsor',
-    baseRate: 150000,
-    rateComp: 150000,
+    baseRate: 50000,
+    rateComp: 50000,
     rateSearch: 0,
     bundleDiscount: 0.10,
     socialMultiplier: 2,
@@ -538,9 +538,9 @@ const TIERS = {
   },
   gold: {
     name: 'Gold Sponsor',
-    baseRate: 100000,
-    rateComp: 100000,
-    rateSearch: 100000,
+    baseRate: 80000,
+    rateComp: 80000,
+    rateSearch: 80000,
     bundleDiscount: 0.10,
     socialMultiplier: 4,
     ctr: 0.012,
@@ -620,7 +620,7 @@ function updateEpisodeOptions() {
     const opts = t.episodeOptions[series] || [6];
     opts.forEach(n => {
       const lbl = isChallenge
-        ? (n === 1 ? '1 Event ($150K)' : n === 3 ? '3 Events ($150K ea)' : '5 Events — 10% off ($135K ea)')
+        ? (n === 1 ? '1 Event ($50K)' : n === 3 ? '3 Events ($50K ea)' : '5 Events — 10% off ($45K ea)')
         : (n === 3 ? 'Half Season (3 episodes)' : `Full Season (${n} episodes)`);
       epSel.add(new Option(lbl, n.toString()));
     });
@@ -651,8 +651,8 @@ function recalculate() {
   // Calculate per-episode rate
   let perEpRate;
   if (currentTier === 'challenge') {
-    if (numEp === 5) perEpRate = 135000;
-    else perEpRate = 150000;
+    if (numEp === 5) perEpRate = 45000;
+    else perEpRate = 50000;
   } else if (series === 'bundle') {
     const compTotal = t.rateComp * 6;
     const searchTotal = t.rateSearch * 4;
@@ -662,7 +662,7 @@ function recalculate() {
     perEpRate = t.rateSearch;
   } else {
     perEpRate = t.rateComp;
-    if (currentTier === 'team' && numEp === 3) perEpRate = 200000;
+    if (currentTier === 'team' && numEp === 3) perEpRate = 100000;
   }
 
   const totalCost = perEpRate * numEp;
