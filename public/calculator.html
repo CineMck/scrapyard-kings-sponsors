@@ -223,9 +223,9 @@
 
   <div class="tier-grid">
     <div class="tier-card selected" onclick="selectTier('premiere')" id="card-premiere">
-      <div class="tier-badge premiere">1 Per Series</div>
+      <div class="tier-badge premiere">1 Available</div>
       <div class="tier-name">Premiere Sponsor</div>
-      <div class="tier-price">$200K <span>/ episode</span></div>
+      <div class="tier-price">$200K <span>/ episode (10 eps)</span></div>
       <div class="tier-desc">Title integration, custom integrations, Heavy D collab, Tool Armory branding, Grand Prize naming</div>
     </div>
     <div class="tier-card" onclick="selectTier('team')" id="card-team">
@@ -241,9 +241,9 @@
       <div class="tier-desc">On-site activation, product demos, event footage visibility, branded recap clips</div>
     </div>
     <div class="tier-card" onclick="selectTier('gold')" id="card-gold">
-      <div class="tier-badge gold">3 Per Series</div>
+      <div class="tier-badge gold">3 Available</div>
       <div class="tier-name">Gold Sponsor</div>
-      <div class="tier-price">$80K <span>/ episode</span></div>
+      <div class="tier-price">$80K <span>/ episode (10 eps)</span></div>
       <div class="tier-desc">Custom integrations, Diesel Dave collab, co-branded event, social content</div>
     </div>
     <div class="tier-card" onclick="selectTier('silver')" id="card-silver">
@@ -466,15 +466,15 @@ const TIERS = {
     baseRate: 200000,
     rateComp: 200000,
     rateSearch: 200000,
-    bundleDiscount: 0.10,
+    bundleDiscount: 0,
     socialMultiplier: 5,
     ctr: 0.015,
     cvr: 0.035,
     aov: 95,
     visits: 4,
     emvPerImpression: 0.015,
-    seriesOptions: ['competition','search','bundle'],
-    episodeOptions: { competition: [6], search: [4], bundle: [10] },
+    seriesOptions: ['bundle'],
+    episodeOptions: { bundle: [10] },
     color: 'var(--accent)',
     benefits: [
       { icon: '🏆', text: 'Title Card: "Scrapyard Kings Presented by [Your Brand]"' },
@@ -541,15 +541,15 @@ const TIERS = {
     baseRate: 80000,
     rateComp: 80000,
     rateSearch: 80000,
-    bundleDiscount: 0.10,
+    bundleDiscount: 0,
     socialMultiplier: 4,
     ctr: 0.012,
     cvr: 0.03,
     aov: 95,
     visits: 4,
     emvPerImpression: 0.012,
-    seriesOptions: ['competition','search','bundle'],
-    episodeOptions: { competition: [6], search: [4], bundle: [10] },
+    seriesOptions: ['bundle'],
+    episodeOptions: { bundle: [10] },
     color: 'var(--gold)',
     benefits: [
       { icon: '🎬', text: 'Two custom 30-second integrations into each episode' },
