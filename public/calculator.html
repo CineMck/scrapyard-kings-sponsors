@@ -196,9 +196,18 @@
   }
   @media (max-width: 560px) {
     .tier-grid { grid-template-columns: 1fr; }
-    .results-grid { grid-template-columns: 1fr 1fr; }
+    .results-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .result-box { padding: 16px 12px; overflow: hidden; }
+    .result-value { font-size: 1.4rem; }
+    .result-label { font-size: 0.6rem; letter-spacing: 0.3px; }
+    .result-note { font-size: 0.65rem; }
     .header h1 { font-size: 1.7rem; }
     .header p { font-size: 0.9rem; }
+  }
+  @media (max-width: 420px) {
+    .results-grid { grid-template-columns: 1fr; }
+    .result-value { font-size: 1.8rem; }
+    .result-box { padding: 18px 16px; }
   }
 </style>
 </head>
