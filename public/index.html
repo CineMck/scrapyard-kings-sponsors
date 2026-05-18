@@ -150,20 +150,59 @@ footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);co
 
 /* RESPONSIVE */
 @media(max-width:768px){
-  nav{top:12px;padding:0 20px;height:50px;max-width:calc(100% - 24px);gap:16px}
-  .stats-bar{flex-wrap:wrap;gap:24px 32px}
-  .about-grid,.series-row{grid-template-columns:1fr}
-  .tier-row{grid-template-columns:1fr 1fr 1fr}
-  .s1-grid{grid-template-columns:1fr 1fr}
+  nav{top:12px;padding:0 16px;height:48px;max-width:calc(100% - 24px);gap:12px}
+  .nav-brand{font-size:0.8rem}
   .nav-links a:not(.nav-cta){display:none}
-  .section{padding:80px 24px}
-  .section-title{font-size:2rem}
-  .hero h1{font-size:clamp(2.5rem,8vw,4rem)}
-  .cta-section h2{font-size:2rem}
+  .nav-cta{padding:6px 14px;font-size:0.72rem}
+  .stats-bar{flex-wrap:wrap;gap:20px 28px;padding:48px 20px}
+  .stat-val{font-size:1.8rem}
+  .stat-label{font-size:0.65rem}
+  .about-grid,.series-row{grid-template-columns:1fr}
+  .tier-row{grid-template-columns:1fr 1fr}
+  .tier-preview{padding:24px 18px}
+  .tp-name{font-size:0.95rem}
+  .tp-price{font-size:1.5rem}
+  .tp-price span{font-size:0.65rem}
+  .tp-desc{font-size:0.75rem}
+  .tp-features{font-size:0.72rem}
+  .s1-grid{grid-template-columns:1fr 1fr}
+  .section{padding:64px 20px}
+  .section-title{font-size:1.8rem}
+  .section-sub{font-size:0.95rem;margin-bottom:32px}
+  .hero{padding:100px 20px 80px}
+  .hero h1{font-size:clamp(2.2rem,8vw,3.5rem)}
+  .hero p{font-size:1rem}
+  .hero-btns{flex-direction:column;align-items:center;gap:10px}
+  .btn{padding:14px 28px;font-size:0.9rem;width:100%;justify-content:center;max-width:300px}
+  .series-card{padding:28px 24px}
+  .series-card h3{font-size:1.2rem}
+  .series-card p{font-size:0.85rem}
+  .series-stat{flex-wrap:wrap;gap:16px}
+  .series-stat div{min-width:60px}
+  .series-stat .sv{font-size:1.1rem}
+  .series-stat .sl{font-size:0.58rem}
+  .about-card{padding:28px 24px}
+  .about-card h3{font-size:1rem}
+  .about-card p{font-size:0.85rem}
+  .cta-section{padding:80px 20px}
+  .cta-section h2{font-size:1.8rem}
+  .cta-section p{font-size:0.95rem}
+  .trailer-section{padding:60px 20px}
+  footer{font-size:0.72rem;padding:32px 20px}
 }
 @media(max-width:480px){
   .tier-row{grid-template-columns:1fr}
-  .stats-bar{gap:20px 28px}
+  .tier-preview{padding:28px 22px}
+  .tp-price{font-size:1.6rem}
+  .stats-bar{gap:16px 20px;padding:40px 16px}
+  .stat-val{font-size:1.5rem}
+  .s1-grid{grid-template-columns:1fr}
+  .s1-val{font-size:1.6rem}
+  .section{padding:56px 16px}
+  .hero{padding:90px 16px 70px;min-height:auto}
+  .hero p{font-size:0.92rem;margin-bottom:28px}
+  .series-stat{gap:12px 16px}
+  .cta-section{padding:64px 16px}
 }
 </style>
 </head>
